@@ -5,13 +5,13 @@ from sqlalchemy import create_engine
 from airflow.utils.task_group import TaskGroup
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from airflow.providers.mysql.operators.mysql import MySqlOperator
+#from airflow.providers.mysql.operators.mysql import MySqlOperator
 import pandas as pd
 from airflow.operators.empty import EmptyOperator
 from airflow.exceptions import AirflowSkipException, AirflowFailException
 from airflow.utils.state import State 
 from airflow.models import DagRun
-from airflow.models import 
+from airflow.models import Variable
 
 #[source, destination, column name] 
 table_list = [
