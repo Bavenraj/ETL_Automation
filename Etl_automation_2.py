@@ -22,15 +22,7 @@ table_list = [
     ['oasis_air_recon_2021', 'hist_oasis_air_2021', 'Reporting Date']
 ]
 
-def previous_month():
-    if date.today().month == 1:
-        prev_month = 12
-        prev_year = date.today().year - 1
-    else:
-        prev_month = date.today().month - 1
-        prev_year = date.today().year
-    return prev_year, prev_month   
-print(previous_month()[1])
+
 
 def dag_status_check(**kwargs):
     dag_id = kwargs['dag'].dag_id
