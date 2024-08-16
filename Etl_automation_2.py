@@ -22,7 +22,15 @@ table_list = [
     ['oasis_air_recon_2021', 'hist_oasis_air_2021', 'Reporting Date']
 ]
 
-
+def previous_month():
+    if date.today().month == 1:
+        prev_month = 12
+        prev_year = date.today().year - 1
+    else:
+        prev_month = date.today().month - 1
+        prev_year = date.today().year
+    return prev_year, prev_month   
+print(previous_month()[1])
 
 def dag_status_check(**kwargs):
     dag_id = kwargs['dag'].dag_id
@@ -89,11 +97,6 @@ def Update_Table(**kwargs):
     mssql_data.to_sql(name=kwargs['destination_table'], con= engine, if_exists="append", index = False)
 
 
-default_args = {
-    'owner': 'Bavenraj',
-    'start_date': datetime(2024, 7, 15),
-    'retries': 0,
-}
 
 with DAG(
     dag_id = "Etl_automation_2",
