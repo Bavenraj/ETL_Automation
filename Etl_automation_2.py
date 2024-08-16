@@ -97,6 +97,11 @@ def Update_Table(**kwargs):
     mssql_data.to_sql(name=kwargs['destination_table'], con= engine, if_exists="append", index = False)
 
 
+default_args = {
+    'owner': 'Bavenraj',
+    'start_date': datetime(2024, 7, 15),
+    'retries': 0,
+}
 
 with DAG(
     dag_id = "Etl_automation_2",
